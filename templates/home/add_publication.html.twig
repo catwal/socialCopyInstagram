@@ -1,0 +1,16 @@
+{% extends 'home/home.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/add_publication.css') }}">
+{% endblock %}
+
+{% block home_content %}
+    <div class="container_add_publication">
+        {{ form_start(form) }}
+        {{ form_rest(form) }}
+        <button type="submit">Partager</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,163 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/sign.css') }}">
+{% endblock %}
+
+{% block body_signup %}
+
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="signin_container">
+
+            <div class="logo">
+                <img src="{{ asset('images/logo-insta.png') }}" alt="">
+            </div>
+
+            <div class="content_signup">
+                Inscrivez-vous pour voir les photos et vidéos de vos amis
+            </div>
+
+            <button class="fb_connect">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                </svg>
+                Se connecter avec Facebook
+            </button>
+
+            <div class="or_section">
+                <span>OU</span>
+            </div>
+
+            <div class="form_signup">
+                {{ form_start(form) }}
+                    <div class="form_group">
+                        {{ form_row(form.email, {
+                            label: 'Email',
+                            attr: {
+                                placeholder: 'Email'
+                            },
+                            row_attr: {
+                                class: 'form-floating'
+                            }
+                        }) }}
+                    </div>
+                    <div class="form_group">
+                        {{ form_row(form.fullName, {
+                            label: 'Nom complet',
+                            attr: {
+                                placeholder: 'complet'
+                            },
+                            row_attr: {
+                                class: 'form-floating'
+                            }
+                        }) }}
+                    </div>
+                    <div class="form_group">
+                        {{ form_row(form.userName, {
+                            label: 'Nom d\'utilisateur',
+                            attr: {
+                                placeholder: 'Nom d\'utilisateur'
+                            },
+                            row_attr: {
+                                class: 'form-floating'
+                            }
+                        }) }}
+                    </div>
+                    <div class="form_group">
+                        {{ form_row(form.password, {
+                            label: 'Mot de passe',
+                            attr: {
+                                placeholder: 'Mot de passe'
+                            },
+                            row_attr: {
+                                class: 'form-floating'
+                            }
+                        }) }}
+                    </div>
+                {{ form_rest(form) }}
+
+                    <div class="more_infos">
+                        Les personnes qui utilisent notre service ont pu importer vos coordonnées sur Instagram.
+                        <a href="#">En savoir plus</a>
+                    </div>
+                    <div class="more_infos_bis">
+                        En vous inscrivant, vous acceptez nos <a href="#">Conditions générales.</a>
+                        Découvrez comment nous recueillons, utilisons et partageons vos données en lisant notre
+                        <a href="#">Politique de confidentialité</a> et comment nous utilisons les cookies et autres technologies similaires en
+                        consultant notre <a href="#">Politique d’utilisation des cookies. </a>
+                    </div>
+                    <button type="submit" class="btn disabled">
+                        Suivant
+                    </button>
+
+                {{ form_end(form) }}
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="sign_section">
+            Vous avez un compte ? <a href="{{ path('signin_account') }}">Connectez-vous</a>
+        </div>
+    </div>
+
+    <div class="social_connect">
+        <div class="app_download">
+            Téléchargez l'application
+        </div>
+        <div class="social_dowload_img">
+            <img src="https://static.cdninstagram.com/rsrc.php/v3/yr/r/093c-DX36-y.png" alt="" style="width: 120px; height: 50px; padding-right: 5px">
+            <img src="https://static.cdninstagram.com/rsrc.php/v3/yk/r/NtqqucWkedn.png" alt="" style="width: 120px; height: 50px">
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>
+
+ $(function () {
+     var submitEnabled = false;
+     var textDirty = false;
+     var passwordDirty = false;
+     var emailDirty = false;
+
+        $('input[type=text]').on('keyup', function () {
+            if($(this).val().length > 0){
+                textDirty = true;
+                checkBtnValidation()
+                console.log('value')
+            }
+        })
+
+         $('input[type=email]').on('keyup', function () {
+             if($(this).val().length > 0){
+                 emailDirty = true;
+                 checkBtnValidation()
+                 console.log('value')
+             }
+         })
+
+         $('input[type=password]').on('keyup', function () {
+             if($(this).val().length > 0){
+                 passwordDirty = true;
+                 checkBtnValidation()
+                 console.log('value')
+             }
+         })
+
+        function checkBtnValidation(){
+            if(textDirty && passwordDirty && emailDirty){
+                submitEnabled = true;
+                $('.btn').removeClass('disabled');
+            }
+        }
+
+    });
+
+</script>
+
+{% endblock %}

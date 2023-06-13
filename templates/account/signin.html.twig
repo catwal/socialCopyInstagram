@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/sign.css') }}">
+{% endblock %}
+
+{% block body_signin %}
+
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="signin_container">
+            <div class="logo">
+                <img src="{{ asset('images/logo-insta.png') }}" alt="">
+            </div>
+            <div class="form_signin">
+                {{ form_start(form) }}
+                <div class="form_group">
+                    {{ form_row(form.email, {
+                        label: 'Email',
+                        attr: {
+                            placeholder: 'Email'
+                        },
+                        row_attr: {
+                            class: 'form-floating'
+                        }
+                    }) }}
+                </div>
+                <div class="form_group">
+                    {{ form_row(form.password, {
+                        label: 'Mot de passe',
+                        attr: {
+                            placeholder: 'Mot de passe'
+                        },
+                        row_attr: {
+                            class: 'form-floating'
+                        }
+                    }) }}
+                </div>
+                {{ form_rest(form) }}
+                <button type="submit" class="btn connexion">
+                    Se connecter
+                </button>
+                {{ form_end(form) }}
+            </div>
+
+
+
+            <div class="or_section">
+                <span>OU</span>
+            </div>
+            <button class="fb_connect">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                </svg>
+                Se connecter avec Facebook
+            </button>
+            <div class="forgot_password_section">
+                <a href="">Mot de passe oublié ?</a>
+            </div>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="sign_section">
+            Vous n'avez pas de compte ? <a href="{{ path('signup_account') }}">Inscrivez-vous</a>
+        </div>
+    </div>
+
+    <div class="social_connect">
+        <div class="app_download">
+            Téléchargez l'application
+        </div>
+        <div class="social_dowload_img">
+            <img src="https://static.cdninstagram.com/rsrc.php/v3/yr/r/093c-DX36-y.png" alt="" style="width: 120px; height: 50px; padding-right: 5px">
+            <img src="https://static.cdninstagram.com/rsrc.php/v3/yk/r/NtqqucWkedn.png" alt="" style="width: 120px; height: 50px">
+        </div>
+    </div>
+{% endblock %}

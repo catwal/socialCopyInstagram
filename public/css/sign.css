@@ -1,0 +1,180 @@
+.container {
+    padding-top: 15px;
+}
+.signin_container {
+    border: 1px solid rgb(219, 219, 219);
+    padding: 0 30px;
+    max-width: 350px;
+    margin-top: 12px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+.logo img {
+    width: 245px;
+}
+
+.content_signup {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgb(115, 115, 115);
+    text-align: center;
+    padding: 0 15px 20px;
+    line-height: 20px;
+    width: 280px;
+    margin: 0 auto;
+}
+.fb_connect {
+    width: 250px;
+    margin: 10px auto;
+    background-color: rgb(0, 129, 246);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid rgb(0, 129, 246);
+    border-radius: 8px;
+}
+
+.fb_connect:hover {
+    background-color: #1877F2;
+}
+
+.fb_connect svg {
+    margin-right: 8px;
+}
+
+.or_section {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    line-height: 0.1em;
+    margin: 30px 0 30px;
+}
+
+.or_section span {
+   background: #fff;
+    padding: 0 10px;
+    color: rgb(115, 115, 115);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form_group {
+    padding: 3px 0;
+    width: 250px;
+}
+.form-control {
+    border-radius: 3px;
+    background-color: rgb(250,250,250);
+    height: 30px;
+}
+.form-floating>.form-control {
+    height: 30px;
+}
+
+.form-floating>label {
+    font-size: 12px;
+    top: -8px;
+    color: rgb(115, 115, 115);
+}
+
+.form-control:focus {
+    border-color: unset;
+    background-color: rgb(250, 250, 250);
+    box-shadow: unset;
+}
+
+.more_infos, .more_infos_bis {
+    font-size: 12px;
+    text-align: center;
+    padding: 5px;
+    max-width: 270px;
+    color: rgb(115, 115, 115);
+    line-height: 1rem;
+    margin: 8px 0;
+}
+
+.more_infos a, .more_infos_bis a {
+    text-decoration: none;
+    color: navy;
+}
+
+
+.btn {
+    width: 250px;
+    margin: 0 auto 40px;
+    background-color: rgb(0, 129, 246);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid rgb(0, 129, 246);
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background-color: #1877F2;
+    color: #ffffff;
+}
+
+.connexion {
+    margin-top: 10px;
+}
+
+.forgot_password_section {
+    padding: 25px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.forgot_password_section a {
+    text-decoration: none;
+}
+
+.sign_section {
+    max-width: 350px;
+    padding: 30px;
+    border: 1px solid rgb(219, 219, 219);
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.sign_section a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.social_connect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.app_download {
+    font-size: 14px;
+    margin: 15px auto;
+}
+
+.social_dowload_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px;
+    cursor: pointer;
+}
