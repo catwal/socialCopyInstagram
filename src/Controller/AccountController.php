@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class AccountController extends AbstractController
 {
-    #[Route('/account/signup', name: 'signup_account')]
+    #[Route('/', name: 'signup_account')]
     public function signupAction(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
@@ -61,7 +61,9 @@ class AccountController extends AbstractController
             $userEmail = $form['email']->getData();
             /** @var User $user */
             $user = $entityManager->getRepository(User::class)->findOneBy(['email' => $userEmail]);
-
+            if(!$user){
+                return $this->redirectToRoute('signup_account');
+            }
             $passwordUser = $form['password']->getData();
             $verifyiedPassword = $passwordHasher->isPasswordValid(
                 $user,
@@ -72,7 +74,7 @@ class AccountController extends AbstractController
                 $session->set('userId', $userId);
                 return $this->redirectToRoute('app_home');
             } else {
-               // send a message error
+                return $this->redirectToRoute('signup_account');
             }
 
         }

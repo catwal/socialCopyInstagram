@@ -1,0 +1,38 @@
+
+.container-wrapper{
+    width: calc(100% - 280px);
+    margin-left: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header-profil {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button {
+    border: none;
+    padding: 5px 5px;
+    border-radius: 5px !important;
+}
+
+
+.profil-actions {
+    margin: 15px 15px;
+}
+
+.infos-user {
+    display: flex;
+    justify-content: space-around;
+}
