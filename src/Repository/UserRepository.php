@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use function Doctrine\Common\Collections\andWhere;
 
 /**
  * @extends ServiceEntityRepository<User>
@@ -37,6 +38,16 @@ class UserRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findAllExceptUser($userId)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.id != :userId')
+            ->setParameter('userId', $userId)
+            ->getQuery()
+            ->getResult();
+
     }
 
 //    /**
