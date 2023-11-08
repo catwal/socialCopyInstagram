@@ -19,7 +19,7 @@
                             <div class="header_text">
                                 <div class="user_name">{{ user.userName }}</div>
                                 <span class="header_separator">•</span>
-                                <span class="datetime">{{ publication.createdAt|date("m/d/Y") }}</span>
+                                <span class="datetime">{{ publication.createdAt|date("m/d/Y H:m:s") }}</span>
                             </div>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
@@ -79,13 +79,6 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
-        $(function () {
-            var currentDate = new Date();
-            console.log(currentDate)
-            let datePublication = $('.datetime').text();
-            let dateDiff = new Date(currentDate - datePublication)
-
-        })
     </script>
 
 {% endblock %}

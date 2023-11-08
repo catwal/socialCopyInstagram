@@ -44,6 +44,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
+    #[ORM\Column(type: 'array')]
+    private $followers = [];
+
+    #[ORM\Column(type: 'array')]
+    private $followings = [];
+
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Publication::class)]
     private Collection $id_publication;
 
@@ -162,6 +168,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getFollowers(): array
+    {
+        $followers = $this->followers;
+        return array_unique($followers);
+    }
+
+    public function setFollowers(array $followers): self
+    {
+        $this->followers = $followers;
+        return  $this;
+    }
+
+    public function getFollowings(): array
+    {
+        $followings = $this->followings;
+        return array_unique($followings);
+    }
+
+    public function setFollowings(array $followings): self
+    {
+        $this->followings = $followings;
+        return $this;
+    }
 
     public function getSalt(): ?string
     {

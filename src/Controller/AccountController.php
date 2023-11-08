@@ -30,6 +30,8 @@ class AccountController extends AbstractController
                 $plainTextPassword
             );
             $user->setPassword($hashedPassword);
+            $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setUpdatedAt(new \DateTimeImmutable());
             $entityManager->persist($user);
             $entityManager->flush();
             return $this->redirectToRoute('signin_account');

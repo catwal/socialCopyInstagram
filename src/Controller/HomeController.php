@@ -23,7 +23,8 @@ class HomeController extends AbstractController
         $userId = $session->get('userId');
         /** @var User $user */
         $user = $entityManager->getRepository(User::class)->findOneBy(['id' =>$userId]);
-
+        $users = $entityManager->getRepository(User::class)->findAll();
+        unset($users[$userId]);
         $publications = $entityManager->getRepository(Publication::class)->findAll(['user_id' => $userId]);
 
         return $this->render('home/home.html.twig', [
